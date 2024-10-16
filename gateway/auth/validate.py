@@ -1,13 +1,14 @@
+# video @ 2:00:30
 import os, requests
 
 def token(request):
     if not "Authorization" in request.headers:
-        return None, ("missing credentials", 401)
+        return None, ("missing credentials - auth/validate.py line 5", 401)
 
     token = request.headers["Authorization"]
 
     if not token:
-        return None, ("missing credentials", 401)
+        return None, ("missing credentials - auth/validate.py line 10", 401)
 
     response = requests.post(
         f"http://{os.environ.get('AUTH_SVC_ADDRESS')}/validate",

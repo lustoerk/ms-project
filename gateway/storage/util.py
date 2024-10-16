@@ -1,3 +1,4 @@
+# video @ 2:13:15
 import pika, json
 
 
@@ -6,7 +7,7 @@ def upload(f, fs, channel, access):
         fid = fs.put(f)
     except Exception as err:
         print(err)
-        return "internal server error", 500
+        return "internal server error - storage/util.py line 9 - pushing to MongoDB failed", 500
 
     message = {
         "video_fid": str(fid),
@@ -26,5 +27,5 @@ def upload(f, fs, channel, access):
     except Exception as err:
         print(err)
         fs.delete(fid)
-        return "internal server error", 500
+        return "internal server error - storage/util.py line 29 - pushing to queue failed", 500
     

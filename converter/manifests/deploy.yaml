@@ -20,7 +20,12 @@ spec:
     spec:
       containers:
         - name: converter
-          image: lucas1011/ms-converter
+          image: library/converter
+          imagePullPolicy: Never
+          resources:
+            limits:
+              memory: "2Gi"
+              cpu: "1"
           envFrom:
             - configMapRef:
                 name: converter-configmap

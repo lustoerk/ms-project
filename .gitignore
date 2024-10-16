@@ -1,3 +1,5 @@
+.DS_Store
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -169,4 +171,5 @@ cython_debug/
 
 testvideo.webm
 short.mkv
+test.mp3
 microservices.code-workspace

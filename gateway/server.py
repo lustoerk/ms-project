@@ -1,3 +1,4 @@
+# video @ 1:35:40
 import os, gridfs, pika, json
 from flask import Flask, request, send_file
 from flask_pymongo import PyMongo
@@ -53,6 +54,7 @@ def upload():
         return "not authorized", 401
 
 
+# video @ 4:23:20
 @server.route("/download", methods=["GET"])
 def download():
     access, err = validate.token(request)
@@ -73,7 +75,7 @@ def download():
             return send_file(out, download_name=f"{fid_string}.mp3")
         except Exception as err:
             print(err)
-            return "internal server error", 500
+            return "internal server error - server.py line 76", 500
 
     return "not authorized", 401
 

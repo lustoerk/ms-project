@@ -20,7 +20,8 @@ spec:
     spec:
       containers:
       - name: auth
-        image: lucas1011/ms-auth
+        image: library/auth
+        imagePullPolicy: Never
         resources:
           limits:
             memory: "128Mi"
