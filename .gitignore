@@ -130,10 +130,10 @@ ENV/
 env.bak/
 venv.bak/
 auth/venv
-converter/venv
-gateway/venv
-notification/venv
-rabbit/venv
+converter/venv/
+gateway/venv/
+notification/venv/
+rabbit/venv/
 
 
 # Spyder project settings

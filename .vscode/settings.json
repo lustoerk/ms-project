@@ -1,0 +1,12 @@
+{
+    "python.analysis.extraPaths": [
+        "python/src/gateway/venv/bin/python",
+        "python/src/auth/venv/bin/python"
+    ],
+    "python.analysis.diagnosticSeverityOverrides": {
+        "reportMissingImports": "none"
+    }
+}
+
+
+
