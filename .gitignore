@@ -168,3 +168,5 @@ cython_debug/
 #.idea/
 
 testvideo.webm
+short.mkv
+microservices.code-workspace
