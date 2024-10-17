@@ -20,7 +20,12 @@ spec:
     spec:
       containers:
         - name: notification
-          image: sweasytech/notification
+          image: library/notification
+          imagePullPolicy: Never
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
           envFrom:
             - configMapRef:
                 name: notification-configmap

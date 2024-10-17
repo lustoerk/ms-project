@@ -1,3 +1,4 @@
+# video at 4:29:10
 import pika, sys, os, time
 from send import email
 
