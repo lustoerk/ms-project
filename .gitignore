@@ -173,3 +173,6 @@ testvideo.webm
 short.mkv
 test.mp3
 microservices.code-workspace
+
+# dont push credentials
+notification/manifests/secret.yaml
