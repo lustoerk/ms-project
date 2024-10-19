@@ -47,3 +47,19 @@ email: msarch.dummy.2024@gmail.com
 
 ## helmifyf stuff and host the heelm chart repo
 https://helm.sh/docs/topics/chart_repository/#github-pages-example
+
+
+# Architecture
+
+## Auth
+[Another example](https://www.kdnuggets.com/2021/02/deploy-flask-api-kubernetes-connect-micro-services.html)
+[Create login and register form](https://codeshack.io/login-system-python-flask-mysql/)
+
+## Gateway
+## Converter
+## Rabbit
+## Notifiication
+## Mysql
+setup issues
+- the non-root user that compares the credentials with the mysql db didnt have access: `CREATE USER 'auth_user'@'%' IDENTIFIED BY 'Aauth123';` was set to @localhost, which only allows access from the same machine. After fixing this, i needed to remove the pvc.
+## MongoDB
