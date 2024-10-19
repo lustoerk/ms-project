@@ -17,14 +17,19 @@ server.config["MYSQL_PORT"] = int(os.environ.get("MYSQL_PORT"))
 @server.route("/login", methods=["POST"])
 def login():
     auth = request.authorization
+    sql = "SELECT email, password FROM user WHERE email=%s"
+    data = (auth.username,)
     if not auth:
         return "missing credentials", 401
 
     # check db for username and password
-    cur = mysql.connection.cursor()
-    res = cur.execute(
-        "SELECT email, password FROM user WHERE email=%s", (auth.username,)
-    )
+    try:
+        cur = mysql.connection.cursor()
+        res = cur.execute(sql, data)
+    except Exception as err:
+        print(err)
+        return("db connection failed")
+
 
     if res > 0:
         user_row = cur.fetchone()

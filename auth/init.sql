@@ -1,3 +1,4 @@
+-- change @localhost to @% to allow access from any host
 CREATE USER 'auth_user'@'localhost' IDENTIFIED BY 'Aauth123';
 
 CREATE DATABASE auth;
