@@ -4,6 +4,6 @@ metadata:
   name: auth-configmap
 data:
   MYSQL_HOST: mysql
-  MYSQL_USER: auth_user
+  MYSQL_USER: auth_user       # this is created in ./mysql/manifests/initdb.yaml or ./auth/init.sql if run locally
   MYSQL_DB: auth
   MYSQL_PORT: "3306"

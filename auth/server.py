@@ -1,9 +1,10 @@
+# video @~13min
 import jwt, datetime, os
 from flask import Flask, request
 from flask_mysqldb import MySQL
 
-server = Flask(__name__)
-mysql = MySQL(server)
+server = Flask(__name__)    # magic
+mysql = MySQL(server)       # magic
 
 # config
 server.config["MYSQL_HOST"] = os.environ.get("MYSQL_HOST")
@@ -14,13 +15,15 @@ server.config["MYSQL_PORT"] = int(os.environ.get("MYSQL_PORT"))
 
 # Routes
 ## Login
+## when accessed: store header, use to compare with credentials in mysql and call createJWT 
 @server.route("/login", methods=["POST"])
 def login():
-    auth = request.authorization
+    auth = request.authorization                                   # this is called with curl -X POST host/login -u username:password (basic authorization header)
     sql = "SELECT email, password FROM user WHERE email=%s"
     data = (auth.username,)
+
     if not auth:
-        return "missing credentials", 401
+        return "missing basic header", 401
 
     # check db for username and password
     try:
@@ -44,12 +47,13 @@ def login():
         return "invalid credentials", 401
 
 ## Validate
+## when accessed: store header, extract token, try decoding and return 200 when sucessful
 @server.route("/validate", methods=["POST"])
 def validate():
     encoded_jwt = request.headers["Authorization"]
 
     if not encoded_jwt:
-        return "missing credentials", 401
+        return "missing bearer header", 401
 
     encoded_jwt = encoded_jwt.split(" ")[1]
 
@@ -62,7 +66,7 @@ def validate():
 
     return decoded, 200
 
-
+## Create JSON Web Token
 def createJWT(username, secret, authz):
     return jwt.encode(
         {
