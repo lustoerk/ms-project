@@ -29,3 +29,6 @@ spec:
           envFrom:
             - configMapRef:
                 name: notification-configmap
+            # this is not pushed to git and needs to be created manually!
+            - secretRef:
+                name: notification-secret
